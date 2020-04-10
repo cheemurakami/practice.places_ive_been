@@ -30,10 +30,30 @@ function Place (location, landmark, timeOfYear, notes){
   this.notes = notes;
 };
 
-//after clicked add button, display the landmark only on the list
+
+
+///////////////////user no hanashi/////////////////////////////////////////
+//after click add button, display the landmark only on the list
+//also added id to dekita li
 function display(place){
-  $("#show").append("<li>" + place.landmark + "</li>");
+  $("#show").append("<li id=" + place.id + ">" + place.landmark + "</li>");
 }
+//added lists have to be clickable -click event
+$("#show").on("click","li", function(){
+  displayDetail();
+})
+
+// kokokara
+// function displayDetail(listedPlace){
+//   var placeList = $("ul#show");
+//   var htmlText = "";
+//   listedPlace.places.forEach(function(place)){
+//     htmlText =
+//   }
+//   placeList.html(htmlText)
+//   $("#show-detail").html(//location, landmark, ...)
+// }
+
 
 
 
@@ -53,6 +73,9 @@ $(document).ready(function(){
     display(place);
    
     console.log(album);
-    console.log(place.id);
+    console.log(place);
+  });
+  $("li").click(function(){
+    //show detail function();
   });
 });
